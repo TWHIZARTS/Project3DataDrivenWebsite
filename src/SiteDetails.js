@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 function SiteDetails(props)
 {
+
     const {SiteNum}= useParams()
     const ID = props.data.find(s => s.SiteID == SiteNum);
 
@@ -12,7 +13,7 @@ function SiteDetails(props)
     {
       return (
       <> 
-      <p>Site with ID {props.data.SiteID} not found.</p>
+      <p>Site with ID {ID.SiteID} not found.</p>
       
       </>);
     }
@@ -20,7 +21,7 @@ function SiteDetails(props)
     else{
     return(
         <>
-            <h2>{props.data.Site}</h2>
+            <h2>{ID.Site}</h2>
         </>
     );
 }
