@@ -53,10 +53,13 @@ background-color: #a7b1b4;
 
 }
 div.useColumns section p {text-align: center;}
-/* 
-#individualSiteDetails{
+
+section.individualSiteDetails{
 
   display:flex;
   flex-direction: column;
-
-} */
+  gap: 30px;
+}
+#map{
+  border: 2px solid rgb(236, 230, 143);
+}

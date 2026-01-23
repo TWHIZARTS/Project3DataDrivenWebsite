@@ -37,33 +37,34 @@ function SiteDetails(props)
             crossorigin=""></script>
 
         </head>
-        <body className = "individualSiteDetails">
+        <body>
              
             <h1>{ID.Site}</h1>
 
-        <section className = "sectionImage">
-            <img src = {`/images/${ID.Image}`} alt = "pic"/>
+        <section className = "individualSiteDetails">
+            <section className = "sectionImage">
+                <img src = {`/images/${ID.Image}`} alt = "pic"/>
+            </section>
+
+
+            <section className = "sectionDescription">
+                {ID.Description}
+            </section>
+
+            <div id="map">
+                <MapContainer style={{ height: "450px", width: "100%" }} center={position} zoom={17} scrollWheelZoom={true}>
+                    <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <CircleMarker center={position} radius={20} pathOptions={{ color: 'red' }}>
+                    <Popup>
+                        Visit {ID.Site}!
+                    </Popup>
+                    </CircleMarker>
+                </MapContainer>
+            </div>
         </section>
-
-
-        <section className = "sectionDescription">
-            {ID.Description}
-        </section>
-
-        <div id="map">
-            <MapContainer style={{ height: "450px", width: "100%" }} center={position} zoom={17} scrollWheelZoom={false}>
-                <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <CircleMarker center={position} radius={20} pathOptions={{ color: 'red' }}>
-                <Popup>
-                    Visit {ID.Site}!
-                </Popup>
-                </CircleMarker>
-            </MapContainer>
-        </div>
-            
         </body>
         </>
     );
