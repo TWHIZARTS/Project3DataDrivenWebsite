@@ -5,7 +5,14 @@ function Sites(props)
 {
     return(
         <>
+          
+          <div className="Imgholder">
+            <section><p>img placeholder</p></section>
+          </div>
 
+
+          <div className="useColumns">
+          <div className='linktable'> 
            <table>     
          <thead>
             <tr>
@@ -28,6 +35,11 @@ function Sites(props)
  
           </tbody> 
       </table>  
+      </div>
+      
+      <section><p>About Column</p></section>
+
+      </div>
         </>
     );
 }

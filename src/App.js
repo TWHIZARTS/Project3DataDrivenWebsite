@@ -21,6 +21,7 @@ useEffect(() =>{
         // console.log(result);
         setData(result);
       }
+      
     }
     fetchData()
   },[]);
@@ -30,7 +31,8 @@ useEffect(() =>{
   return (
     <div className="App">
       <>      
-        <h1>Site Information</h1>
+        <header>America 250</header>
+        
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Sites data = {data} />}/>

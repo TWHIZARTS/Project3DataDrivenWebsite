@@ -1,15 +1,13 @@
 .App {
-  text-align: center;
+text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  img {
+    /* animation: App-logo-spin infinite 2s linear; */
+    width: 40%;
   }
 }
 
@@ -36,3 +34,29 @@
     transform: rotate(360deg);
   }
 }
+h1{text-align: center;}
+
+div.linktable
+{
+  width:70%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(219, 219, 219);
+  gap: 10px;
+  border: 2px solid black;
+}
+
+div.useColumns{
+  display: flex;
+background-color: #a7b1b4;
+ border: 2px solid rgb(24, 16, 59);
+
+}
+div.useColumns section p {text-align: center;}
+/* 
+#individualSiteDetails{
+
+  display:flex;
+  flex-direction: column;
+
+} */
