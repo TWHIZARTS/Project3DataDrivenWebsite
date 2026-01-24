@@ -31,7 +31,8 @@ useEffect(() =>{
   return (
     <div className="App">
       <>      
-        <header>America 250</header>
+
+        <section className="topbar"> <header>America 250</header></section>
         
         <BrowserRouter>
           <Routes>

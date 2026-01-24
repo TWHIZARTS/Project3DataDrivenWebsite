@@ -7,16 +7,19 @@ function Sites(props)
         <>
           
           <div className="Imgholder">
-            <section><p>img placeholder</p></section>
+            <section id="homeimg"><p>img placeholder</p></section>
           </div>
 
 
           <div className="useColumns">
+
+          
+
           <div className='linktable'> 
            <table>     
          <thead>
             <tr>
-               <th>Name of Site</th>
+               <th>Sites</th>
             </tr>
           </thead>
           <tbody>       
@@ -36,9 +39,9 @@ function Sites(props)
           </tbody> 
       </table>  
       </div>
+    
+      <h3>About</h3>
       
-      <section><p>About Column</p></section>
-
       </div>
         </>
     );

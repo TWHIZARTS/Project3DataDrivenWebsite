@@ -1,7 +1,6 @@
 import react from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Popup, MapContainer, TileLayer, CircleMarker } from 'react-leaflet'
-
 function SiteDetails(props)
 {
     const {SiteNum}= useParams()
@@ -38,16 +37,20 @@ function SiteDetails(props)
 
         </head>
         <body>
-             
+            <Link to={`/`}>Home</Link>
+
             <h1>{ID.Site}</h1>
 
-        <section className = "individualSiteDetails">
+
             <section className = "sectionImage">
                 <img src = {`/images/${ID.Image}`} alt = "pic"/>
+                        
             </section>
+            <section className = "individualSiteDetails">
 
 
             <section className = "sectionDescription">
+                <section><h3> About</h3></section>
                 {ID.Description}
             </section>
 
@@ -65,6 +68,9 @@ function SiteDetails(props)
                 </MapContainer>
             </div>
         </section>
+
+
+        
         </body>
         </>
     );

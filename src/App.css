@@ -34,7 +34,28 @@ text-align: center;
     transform: rotate(360deg);
   }
 }
+
+
+
 h1{text-align: center;}
+
+.topbar
+{
+  align-content: center;
+  justify-content: center center;
+  height: 50px;
+  background-color: #2d3497;
+
+}
+header
+{
+  
+  color: aliceblue;
+  
+  font-weight: 800;
+  
+ 
+}
 
 div.linktable
 {
@@ -48,18 +69,41 @@ div.linktable
 
 div.useColumns{
   display: flex;
+ justify-self:center;
 background-color: #a7b1b4;
- border: 2px solid rgb(24, 16, 59);
+ border: 2px solid rgb(0, 0, 0);
+ width:60%;
+ 
+ 
 
 }
-div.useColumns section p {text-align: center;}
+
+body{background-color: rgb(238, 238, 238);}
 
 section.individualSiteDetails{
 
   display:flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
   gap: 30px;
+  
+  padding: 3%;
 }
 #map{
-  border: 2px solid rgb(236, 230, 143);
+  border: 2px solid rgb(168, 194, 168);
+  width:60%;
+}
+section.sectionDescription{
+  background-color: #cccccc;
+  width:40%;
+  
+}
+
+div.useColumns h3
+{width: 30%;
+text-wrap: wrap;}
+
+
+img
+{
+  border: black solid 2px;
 }
