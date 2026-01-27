@@ -5,16 +5,7 @@ function Sites(props)
 {
     return(
         <>
-          
-          <div className="Imgholder">
-            <section id="homeimg"><p>img placeholder</p></section>
-          </div>
-
-
-          <div className="useColumns">
-
-          
-
+        <div className="useColumns">
           <div className='linktable'> 
            <table>     
          <thead>
@@ -22,25 +13,32 @@ function Sites(props)
                <th>Sites</th>
             </tr>
           </thead>
-          <tbody>       
-            
-               
-          {props.data.map(site => 
-          <tr>
-            <td> 
-            <Link to={`/${site.SiteID}`}>
-              {site.Site}
-            </Link>
-            </td> 
-            <td></td>
-          </tr>
-          )}
- 
+
+          <tbody>                     
+            {props.data.map(site => 
+              <tr key = {site.SiteID}>
+                <td> 
+                  <Link to={`/${site.SiteID}`}>
+                    {site.Site}
+                  </Link>
+                </td> 
+              <td></td>
+            </tr>
+            )}
           </tbody> 
+          
       </table>  
       </div>
     
-      <h3>About</h3>
+      <section className="sectionDescription">
+        <h3>About</h3>
+        <p>
+          The <strong>America 250 KY Boyle county committee</strong> presents the following
+          important historical sites. <br /><br />
+          Pursue, learn, and celebrate the history of Boyle County!<br /><br />
+          Select your choice to explore.
+        </p>
+      </section>
       
       </div>
         </>

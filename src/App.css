@@ -2,14 +2,10 @@
 text-align: center;
 }
 
+img {
+  width: 40%;
+ }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  img {
-    /* animation: App-logo-spin infinite 2s linear; */
-    width: 40%;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -26,35 +22,30 @@ text-align: center;
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-
 h1{text-align: center;}
 
 .topbar
 {
   align-content: center;
-  justify-content: center center;
-  height: 50px;
+  justify-content: center;
+  height: 100px;
   background-color: #2d3497;
+  position: sticky;
+  top: 0;
+  left: 0;
 
 }
+
 header
 {
-  
   color: aliceblue;
-  
   font-weight: 800;
-  
- 
+}
+
+header a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(to bottom, darkred, red);
 }
 
 div.linktable
@@ -69,39 +60,40 @@ div.linktable
 
 div.useColumns{
   display: flex;
- justify-self:center;
-background-color: #a7b1b4;
- border: 2px solid rgb(0, 0, 0);
- width:60%;
- 
- 
-
+  justify-self:center;
+  gap: 10px;
+  width:80%;
+  margin-top: 20px;
 }
 
-body{background-color: rgb(238, 238, 238);}
+body{
+  background-color: rgb(238, 238, 238);
+}
 
 section.individualSiteDetails{
-
   display:flex;
   flex-direction: row-reverse;
   gap: 30px;
-  
   padding: 3%;
 }
-#map{
-  border: 2px solid rgb(168, 194, 168);
-  width:60%;
-}
+
 section.sectionDescription{
-  background-color: #cccccc;
+  background: linear-gradient(to bottom, rgba(255, 242, 242, 0.668), rgba(199, 5, 5, 0.46));
   width:40%;
-  
+  border: 2px solid black;
+}
+section.sectionDescription p{
+  text-align: left;
+  margin: 10px;
 }
 
-div.useColumns h3
-{width: 30%;
-text-wrap: wrap;}
+div.useColumns h3{
+  text-wrap: wrap;
+}
 
+a{
+  color: darkblue;
+}
 
 img
 {

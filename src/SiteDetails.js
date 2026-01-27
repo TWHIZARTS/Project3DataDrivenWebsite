@@ -1,80 +1,61 @@
 import react from "react";
 import { useParams, Link } from "react-router-dom";
 import { Popup, MapContainer, TileLayer, CircleMarker } from 'react-leaflet'
+import 'leaflet/dist/leaflet.css'
 function SiteDetails(props)
 {
     const {SiteNum}= useParams()
+
+    //attempt to prevent page crash when refreshing.
+    if (!props.data || props.data.length === 0){
+        return(
+            <p>Loading site...</p>
+        )
+    }
     const ID = props.data.find(s => s.SiteID == SiteNum);
     console.log(ID, SiteNum)
     
+    if (ID===undefined)
+    {
+      return (
+      <p>Site with ID {SiteNum} not found.</p>
+      );
+    }
 
     const lat = ID.Latitude
     const lon = ID.Longitude
     const position = [lat, lon]
 
-    if (ID===undefined)
-    {
-      return (
-      <>
-
-      <p>Site with ID {ID.SiteID} not found.</p>
-      
-      </>);
-    }
-
-    else{
-        console.log(ID.Image)
+    console.log(ID.Image)
     return(
         <>
-        <head>
-             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-                integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-                crossorigin=""/>
-            
-            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
-
-        </head>
-        <body>
-            <Link to={`/`}>Home</Link>
-
             <h1>{ID.Site}</h1>
-
 
             <section className = "sectionImage">
                 <img src = {`/images/${ID.Image}`} alt = "pic"/>
-                        
             </section>
+
             <section className = "individualSiteDetails">
+                <section className = "sectionDescription">
+                    <h3> About</h3>
+                    <p>{ID.Description}</p>
+                </section>
 
-
-            <section className = "sectionDescription">
-                <section><h3> About</h3></section>
-                {ID.Description}
+                <div id="map" style={{ height: "450px", width: "60%", border: "2px solid rgb(168,194,168)" }}>
+                    <MapContainer center={position} zoom={17} scrollWheelZoom={true}style={{ height: "100%", width: "100%" }}>
+                        <TileLayer
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <CircleMarker center={position} radius={20} pathOptions={{ color: 'red' }}>
+                        <Popup>
+                            Visit {ID.Site}!
+                        </Popup>
+                        </CircleMarker>
+                    </MapContainer>
+                </div>
             </section>
-
-            <div id="map">
-                <MapContainer style={{ height: "450px", width: "100%" }} center={position} zoom={17} scrollWheelZoom={true}>
-                    <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    <CircleMarker center={position} radius={20} pathOptions={{ color: 'red' }}>
-                    <Popup>
-                        Visit {ID.Site}!
-                    </Popup>
-                    </CircleMarker>
-                </MapContainer>
-            </div>
-        </section>
-
-
-        
-        </body>
         </>
     );
 }
-}
-
 export default SiteDetails;

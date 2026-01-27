@@ -1,12 +1,16 @@
 // import logo from './logo.svg';
 import './App.css';
-import {react, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 import Sites from './Sites.js';
 import SiteDetails from './SiteDetails.js';
 
 function App() {
   const [ data, setData ]= useState([]);
+
+  //attempt to avoid page crashes
+  const [ isLoading, setIsLoading ]= useState(true);
+
 
 useEffect(() =>{
 
@@ -21,29 +25,28 @@ useEffect(() =>{
         // console.log(result);
         setData(result);
       }
-      
+      setIsLoading(false);
     }
     fetchData()
   },[]);
 
-  
+  if(isLoading){
+    return(
+      <p>Loading...</p>
+    )
+  }
 
   return (
     <div className="App">
-      <>      
-
-        <section className="topbar"> <header>America 250</header></section>
-        
         <BrowserRouter>
+        <section className="topbar"> 
+          <h1><header><Link to = "/">America 250</Link></header></h1>
+        </section>
           <Routes>
             <Route path="/" element={<Sites data = {data} />}/>
             <Route path="/:SiteNum" element={<SiteDetails data = {data} />}/>
           </Routes>
-        
-
-       </BrowserRouter>  
-    </>
-     
+         </BrowserRouter>
     </div>
   );
 }
